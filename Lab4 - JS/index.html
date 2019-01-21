@@ -65,7 +65,7 @@
             </tr>
             <tr>
                 <td>Название страны</td>
-                <td><input type="text"></td>
+                <td><input name="countryname" type="text"></td>
             </tr>
         </table>
     </div>
@@ -95,7 +95,7 @@
             </tr>
             <tr>
                 <td><label class="required" >Орган, выдавший документ (как в паспорте)</label></td>
-                <td><textarea name="issuedate" cols="50" rows="5" required></textarea></td>
+                <td><textarea name="issuer" cols="50" rows="5" required></textarea></td>
             </tr>
 
         </table>
@@ -112,7 +112,7 @@
             </tr>
             <tr id="countrynamecell">
                 <td><label class="required">Название страны</label></td>
-                <td><input type="text" required name="countryname" class="address"></td>
+                <td><input type="text" required name="countryname_addr" class="address"></td>
             </tr>
             <tr>
                 <td><label>Населенный пункт</label></td>
@@ -155,7 +155,7 @@
             </tr>
             <tr id="fact_countrynamecell">
                 <td><label class="required">Название страны</label></td>
-                <td><input type="text" required name="fact_countryname" class="fact_address"></td>
+                <td><input type="text" required name="fact_countryname_addr" class="fact_address"></td>
             </tr>
             <tr>
                 <td><label>Населенный пункт</label></td>
@@ -212,7 +212,7 @@
             </tr>
             <tr>
                 <td><label class="required" >Населенный пункт</label></td>
-                <td><textarea name="issuedate" cols="50" rows="5" required></textarea></td>
+                <td><textarea name="edu_locality" cols="50" rows="5" required></textarea></td>
             </tr>
             <tr>
                 <td><label class="required">Год окончания</label></td>
@@ -232,7 +232,7 @@
             <tr>
                 <td><label>Иностранные языки</label></td>
                 <td>
-                    <select multiple id="foreign_langs">
+                    <select multiple id="foreign_langs" name="foreign_langs">
                         <option>Английский</option>
                         <option>Немецкий</option>
                         <option>Французский</option>
@@ -294,7 +294,7 @@
             <tr>
                 <td><label class="required">Квалификация</label></td>
                 <td>
-                    <select name="program">
+                    <select name="qualification">
                         <option>Техник</option>
                         <option>Бакалавр</option>
                         <option>Специалист</option>
@@ -316,7 +316,7 @@
             <tr>
                 <td><label class="required">Источники финансирования</label></td>
                 <td>
-                    <select name="edu_form">
+                    <select name="finance_sources">
                         <option>Бюджет</option>
                         <option>Внебюджет (контракт)</option>
                         <option>Очно-заочная</option>
@@ -325,7 +325,7 @@
             </tr>
         </table>
     </div>
-
+</div>
 
 <div id="buttons">
     <input type="button" value="Очистить" onclick="clearAll()">
