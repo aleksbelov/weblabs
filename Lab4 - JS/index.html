@@ -1,0 +1,336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Анкета</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="script.js"></script>
+</head>
+<body>
+<div id="errorcontainer">
+    <div id="errormessage" class="hide">
+        Вы некорректно заполнили анкету!
+    </div>
+    <div id="okmessage" class="hide">
+        Ваша анкета успешно отправлена в приемную комиссию!
+    </div>
+</div>
+<div id="tabs">
+    <div class="tab active">Общие сведения</div>
+    <div class="tab">Документ, удостоверяющий личность и гражданство</div>
+    <div class="tab">Адрес</div>
+    <div class="tab">Образование</div>
+    <div class="tab">Направление подготовки</div>
+
+    <div class="tabContent">
+        <table cellpadding="2" cellspacing="0">
+            <tr>
+                <td><label class="required">Фамилия</label></td>
+                <td><input name="lastname" type="text" required/></td>
+            </tr>
+            <tr>
+                <td><label class="required">Имя</label></td>
+                <td><input name="firstname" type="text" required/></td>
+            </tr>
+            <tr>
+                <td>Отчество</td>
+                <td><input name="fathername" type="text"></td>
+            </tr>
+            <tr>
+                <td><label class="required">Пол</label></td>
+                <td>
+                    <select name="sex">
+                        <option>Мужской</option>
+                        <option>Женский</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="required">Дата рождения</label></td>
+                <td><input name="birthdate" type="text" required></td>
+            </tr>
+            <tr>
+                <td><label class="required">Место рождения (по паспорту)</label></td>
+                <td><input name="birthplace" type="text" required></td>
+            </tr>
+            <tr>
+                <td><label class="required">Гражданство</label></td>
+                <td>
+                    <select name="citizenship">
+                        <option>Российская Федерация</option>
+                        <option>Другая страна</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Название страны</td>
+                <td><input type="text"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="tabContent">
+        <table cellpadding="2" cellspacing="0">
+            <tr>
+                <td><label class="required">Вид документа</label></td>
+                <td>
+                    <select name="dockind">
+                        <option>Паспорт гражданина РФ</option>
+                        <option>Паспорт гражданина иностранного государства</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="required">Серия</label></td>
+                <td><input name="series" type="text" required></td>
+            </tr>
+            <tr>
+                <td><label class="required">Номер</label></td>
+                <td><input name="number" type="text" required></td>
+            </tr>
+            <tr>
+                <td><label class="required">Дата выдачи</label></td>
+                <td><input name="issuedate" type="text" required></td>
+            </tr>
+            <tr>
+                <td><label class="required" >Орган, выдавший документ (как в паспорте)</label></td>
+                <td><textarea name="issuedate" cols="50" rows="5" required></textarea></td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="tabContent">
+        <table cellpadding="2" cellspacing="0">
+            <tr>
+                <td><label>Страна</label></td>
+                <td>
+                    <input type="radio" name="country" value="RF" class="address" onchange="countryCheck(this, 'countrynamecell')"> Российская Федерация <br>
+                    <input type="radio" name="country" value="another" class="address" onchange="countryCheck(this, 'countrynamecell')">Другая страна
+                </td>
+            </tr>
+            <tr id="countrynamecell">
+                <td><label class="required">Название страны</label></td>
+                <td><input type="text" required name="countryname" class="address"></td>
+            </tr>
+            <tr>
+                <td><label>Населенный пункт</label></td>
+                <td><input type="text" name="locality" class="address"></td>
+            </tr>
+            <tr>
+                <td><label>Улица</label></td>
+                <td><input type="text" name="street" class="address"></td>
+            </tr>
+            <tr>
+                <td><label>Номер дома</label></td>
+                <td><input type="text" name="housenum" class="address"></td>
+            </tr>
+            <tr>
+                <td><label>Корпус</label></td>
+                <td><input type="text" name="building" class="address"></td>
+            </tr>
+            <tr>
+                <td><label>Квартира</label></td>
+                <td><input type="text" name="flat" class="address"></td>
+            </tr>
+            <tr>
+                <td><label>Индекс</label></td>
+                <td><input type="text" name="ind" class="address"></td>
+            </tr>
+            <tr align="center">
+                <td></td>
+                <td><b>Фактический адрес</b></td>
+            </tr>
+            <tr>
+                <td><label>Скопировать из адреса по паспорту</label></td>
+                <td><input type="checkbox" name="same" checked onchange="sameAddressCheckbox(this);"></td>
+            </tr>
+            <tr>
+                <td><label>Страна</label></td>
+                <td>
+                    <input type="radio" name="fact_country" value="RF" class="fact_address" onchange="countryCheck(this, 'fact_countrynamecell')"> Российская Федерация <br>
+                    <input type="radio" name="fact_country" value="another" class="fact_address" onchange="countryCheck(this, 'fact_countrynamecell')">Другая страна
+                </td>
+            </tr>
+            <tr id="fact_countrynamecell">
+                <td><label class="required">Название страны</label></td>
+                <td><input type="text" required name="fact_countryname" class="fact_address"></td>
+            </tr>
+            <tr>
+                <td><label>Населенный пункт</label></td>
+                <td><input type="text" name="fact_locality" class="fact_address"></td>
+            </tr>
+            <tr>
+                <td><label>Улица</label></td>
+                <td><input type="text" name="fact_street" class="fact_address"></td>
+            </tr>
+            <tr>
+                <td><label>Номер дома</label></td>
+                <td><input type="text" name="fact_housenum" class="fact_address"></td>
+            </tr>
+            <tr>
+                <td><label>Корпус</label></td>
+                <td><input type="text" name="fact_building" class="fact_address"></td>
+            </tr>
+            <tr>
+                <td><label>Квартира</label></td>
+                <td><input type="text" name="fact_flat" class="fact_address"></td>
+            </tr>
+            <tr>
+                <td><label>Индекс</label></td>
+                <td><input type="text" name="fact_ind" class="fact_address"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="tabContent">
+        <table cellpadding="2" cellspacing="0">
+            <tr>
+                <td><label class="required">Тип учебного заведения</label></td>
+                <td>
+                    <select name="dockind">
+                        <option>Школа</option>
+                        <option>Гимназия</option>
+                        <option>Лицей</option>
+                        <option>Техникум</option>
+                        <option>Высшее учебное заведение</option>
+                        <option>Другое</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Страна</label></td>
+                <td>
+                    <input type="radio" name="edu_country" value="RF" onchange="countryCheck(this, 'edu_countrynamecell')"> Российская Федерация <br>
+                    <input type="radio" name="edu_country" value="another" onchange="countryCheck(this, 'edu_countrynamecell')">Другая страна
+                </td>
+            </tr>
+            <tr id="edu_countrynamecell">
+                <td><label class="required">Название страны</label></td>
+                <td><input type="text" required name="edu_countryname"></td>
+            </tr>
+            <tr>
+                <td><label class="required" >Населенный пункт</label></td>
+                <td><textarea name="issuedate" cols="50" rows="5" required></textarea></td>
+            </tr>
+            <tr>
+                <td><label class="required">Год окончания</label></td>
+                <td>
+                    <select id="graduate_year" name="graduate_year">
+                        <script>
+                            years = document.getElementById("graduate_year");
+                            for (i = (new Date()).getFullYear(); i >= 1945; --i) {
+                                var op = document.createElement('option');
+                                op.innerHTML = i.toString();
+                                years.appendChild(op);
+                            }
+                        </script>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Иностранные языки</label></td>
+                <td>
+                    <select multiple id="foreign_langs">
+                        <option>Английский</option>
+                        <option>Немецкий</option>
+                        <option>Французский</option>
+                        <option>Испанский</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="tabContent">
+        <table cellpadding="2" cellspacing="0">
+            <tr>
+                <td><label class="required">Программа</label></td>
+                <td>
+                    <select name="program">
+                        <option>Колледж</option>
+                        <option>Бакалавриат</option>
+                        <option>Специалитет</option>
+                        <option>Магистратура</option>
+                        <option>Аспирантура</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="required">Направление подготовки/Специальнсоть</label></td>
+                <td>
+                    <select name="edu_form">
+                        <option>Биотехнические системы и технологии</option>
+                        <option>Инфокоммуникационные технологии и системы связи</option>
+                        <option>Информатика и вычислительная техника</option>
+                        <option>Информационная безопасность</option>
+                        <option>Конструирование и технология электронных средств</option>
+                        <option>Лингвистика</option>
+                        <option>Материаловедение и технологии материалов</option>
+                        <option>Менеджмент</option>
+                        <option>Прикладная информатика</option>
+                        <option>Программная инженерия</option>
+                        <option>Радиотехника</option>
+                        <option>Техносферная безопасность</option>
+                        <option>Управление в технических системах</option>
+                        <option>Электроника и наноэлектроника</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="required">Выбор факультета/института</label></td>
+                <td>
+                    <select name="edu_form">
+                        <option>Институт биомедицинских систем (БМС)</option>
+                        <option>Институт военной подготовки (ИВП)</option>
+                        <option>Институт лингвистического и педагогического образования (ЛПО)</option>
+                        <option>Институт микроприборов и систем управления имени Л.Н. Преснухина (МПСУ)</option>
+                        <option>Институт нано- и микросистемной техники (НМСТ)</option>
+                        <option>Институт перспективных материалов и технологий (ПМТ)</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="required">Квалификация</label></td>
+                <td>
+                    <select name="program">
+                        <option>Техник</option>
+                        <option>Бакалавр</option>
+                        <option>Специалист</option>
+                        <option>Магистр</option>
+                        <option>Кандидат наук</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="required">Форма обучения</label></td>
+                <td>
+                    <select name="edu_form">
+                        <option>Очная</option>
+                        <option>Заочная</option>
+                        <option>Очно-заочная</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="required">Источники финансирования</label></td>
+                <td>
+                    <select name="edu_form">
+                        <option>Бюджет</option>
+                        <option>Внебюджет (контракт)</option>
+                        <option>Очно-заочная</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+<div id="buttons">
+    <input type="button" value="Очистить" onclick="clearAll()">
+    <input type="submit" value="Отправить" onclick="checkAll()">
+</div>
+
+</body>
+</html>

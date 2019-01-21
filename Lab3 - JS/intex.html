@@ -1,0 +1,168 @@
+<head>
+  <title>Lab3 - JS</title>
+  <script language="JavaScript">
+    function tag(tag_name, tag_content) {
+      return "<" + tag_name + ">" + tag_content + "</" + tag_name + ">";
+    }
+
+    function print_info() {
+      document.write(tag("h2", "Информация о странице:"));
+      document.writeln("Заголовок: " + document.title + "<br>");
+      document.writeln("URL: " + document.URL + "<br>");
+      document.writeln("Дата последнего изменения документа: " + document.lastModified + "<br>")
+    }
+
+    function get_datetime() {
+      var date = new Date();
+      var arr = new Array();
+      arr["FullYear"] = date.getFullYear();
+      arr["Month"] = date.getMonth();
+      arr["Date"] = date.getDate();
+      arr["Day"] = date.getDay();
+      arr["Hours"] = date.getHours();
+      arr["Minutes"] = date.getMinutes();
+      arr["Seconds"] = date.getSeconds();
+      arr["Milliseconds"] = date.getMilliseconds();
+      arr["Delta"] = date.getTimezoneOffset();
+
+      document.write(tag("h2", "Текущее время:"));
+      document.write(gen_two_row_table(arr));
+    }
+
+    function gen_two_row_table(arr) {
+      table = '<table border="1"><tr>';
+      for (x in arr) {
+        table += "<td>" + x + "</td>";
+      }
+      table += "</tr><tr>";
+
+      for (x in arr) {
+        table += "<td>" + arr[x] + "</td>";
+      }   
+      table += "</tr></table>";
+
+      return table;
+    }
+
+    function calc_hyp() {
+      var a = Number(document.getElementById("katet_a").value);
+      var b = Number(document.getElementById("katet_b").value);
+      with (Math) {
+        var hyp = sqrt(a*a + b*b);
+        document.getElementById("hyp").value = hyp;
+        window.status = String(hyp);
+      }
+    }
+
+    function sqr_series(size) {
+      a = new Array(size);
+      for (i=0; i<size; i++) {
+        a[i] = i*i;
+      }
+
+      var res = ""
+      for (i=0; i<size; i++) {
+        res += a[i] + " ";
+      }
+      document.getElementById("series").innerHTML = res
+    }
+
+    function hello() {
+      var name = prompt("Введите ваше имя");
+      window.status = name;
+      document.write(tag("h1", "Здравствуйте, " + name + "!"));
+    }
+
+  </script>
+</head>
+<BODY>
+  <script>hello()</script>
+  <h2>Настроить страницу</h2>
+  <form id=”set_color”>
+    <label>BgColor:</label>
+    <input type="text" id="bgcolor"/>
+    <input id="submitBgColor" value="Submit" type="button"/>
+    <br>
+    <label>TextColor:</label>
+    <input type="text" id="textcolor"/>
+    <input id="submitTextColor" value="Submit" type="button" />
+    <br>
+    <label>LinkColor:</label>
+    <input type="text" id="linkColor"/>
+    <input id="submitlinkColor" value="Submit" type="button" />
+  </form>
+  <input type="button" value="https://yandex.ru" onclick="location.href=this.value" />
+  <script>
+    submitBgColor.onclick = function() {
+      document.bgColor = bgcolor.value;
+    };
+
+    document.getElementById("bgcolor")
+      .addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.keyCode === 13) {
+        document.getElementById("submitBgColor").click();
+      }
+    });
+
+    submitTextColor.onclick = function() {
+      document.fgColor = textcolor.value;
+    };
+
+    document.getElementById("textcolor")
+      .addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.keyCode === 13) {
+        document.getElementById("submitTextColor").click();
+      }
+    });
+
+    submitlinkColor.onclick = function() {
+      document.fgColor = linkColor.value;
+    };
+
+    document.getElementById("linkColor")
+      .addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.keyCode === 13) {
+        document.getElementById("submitlinkColor").click();
+      }
+    });
+  </script>
+  <script>
+    get_datetime();
+    print_info();
+  </script>
+
+  <h2>Прямоугольный треугольник</h2>
+  <form id="triangle">
+    <label>Катет a </label>
+    <input type="text" id="katet_a"/>
+    <br/>
+    <label>Катет b </label>
+    <input type="text" id="katet_b"/>
+    <br/>
+    <label>Гипотенуза</label>
+    <input type="text" id="hyp"/>
+    <input type="button" value="Посчитать" onclick="calc_hyp()"/>
+  </form>
+
+  <h2>Ряд квардатов</h2>
+  <label>Число членов </label>
+  <input type="text" id="series_size" oninput="sqr_series(this.value)"/>
+  <div id="series"></div>
+
+  <h2>Картинка, URL которой можно посмотреть по кнопке</h2>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Hopetoun_falls.jpg/220px-Hopetoun_falls.jpg" id="my_img"/>
+  <input type="button" value="Посмотреть URL" id=showURL>
+  <script>showURL.onclick = function(){alert(document.getElementById("my_img").src)}</script>
+
+  <h2>Новое окно</h2>
+  <input type="button" value="Открыть" onclick="open_window()"/>
+  <script>
+    function open_window(){
+      new_win = window.open("to_open.html", "example");
+    }
+
+  </script>
+</BODY>
