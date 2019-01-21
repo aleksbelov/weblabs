@@ -1,0 +1,109 @@
+* {
+  font-family: "Times New Roman";
+  font-size: 12pt;
+  text-align: justify;
+  line-height: 115%;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  color: #a52a2a;
+  font-size: 24pt;
+  font-family: "Georgia";
+  font-weight: normal;
+}
+
+#fio {
+  position: absolute;
+  color: blue;
+  top: 20px;
+  right: 20px;
+  font-weight: bold;
+  font-style: italic;
+  background-color: #C0C0C0;
+}
+
+
+
+.second {
+  color: red;
+}
+
+[attr^="abc"] {
+  background-color: aqua;
+}
+
+[attr$="xyz"] {
+  color: darkorange;
+}
+
+[attr*="cx"]{
+  margin-left: 50px;
+}
+
+
+b + i {
+  background-color: white;
+}
+
+b > i {
+  background-color: chartreuse;
+}
+
+b i {
+  color: red;
+}
+
+li[spec_attr] {
+  color: cornflowerblue;
+}
+
+[class~="blabla"] {
+  background-color: azure;
+}
+
+span:empty {
+  background: red;
+  padding: 3px;
+  margin-left: 7px;
+  display: inline-block;
+}
+
+li{
+  border-bottom: 1px solid;
+  padding: 10px;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+input[type="email"]:invalid {
+  background: #fdd; /* Красный цвет фона */
+}
+
+input[type="email"]:valid {
+  background: #dfd; /* Зеленый цвет фона */
+}
+
+li:hover{
+  border: solid;
+}
+
+label.subscribe:after{
+  content: "Спама не будет!";
+  margin: 5px;
+  border: solid red;
+}
+
+b, i {
+  border-bottom: solid 1px;
+}
+
+ul {
+  border-left: solid;
+}
+
+li {
+  border-left: inherit;
+}
