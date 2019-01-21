@@ -16,6 +16,7 @@
         Ваша анкета успешно отправлена в приемную комиссию!
     </div>
 </div>
+<form action="store.php" method="post" onsubmit="return false;">
 <div id="tabs">
     <div class="tab active">Общие сведения</div>
     <div class="tab">Документ, удостоверяющий личность и гражданство</div>
@@ -325,12 +326,14 @@
             </tr>
         </table>
     </div>
+
 </div>
 
 <div id="buttons">
     <input type="button" value="Очистить" onclick="clearAll()">
     <input type="submit" value="Отправить" onclick="checkAll()">
 </div>
+</form>
 
 </body>
 </html>
