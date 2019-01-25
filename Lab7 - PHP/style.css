@@ -1,0 +1,96 @@
+body {
+    background-color: cornsilk;
+}
+
+#tabs {
+    width: max-content;
+    margin: 0 auto;
+}
+
+
+#tabs .tab {
+    display: inline-block;
+    padding: 5px 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.tab:not(active){
+    border: solid 1px;
+    border-radius: 5px 5px 0 0;
+    background-color: bisque;
+}
+
+#tabs .active {
+    border: solid 1px;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    background-color: coral;
+}
+
+#tabs .tabContent {
+    border: solid 1px;
+    width: 100%;
+    height: 100%;
+    top: -1px;
+    position: relative;
+    padding: 10px;
+    background-color: bisque;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+td {
+    vertical-align: top;
+}
+
+table td:nth-child(2n+1){
+    text-align: right;
+    width: 200px;
+}
+
+label.required:before{
+    color: red;
+    content: "*";
+}
+
+input[name="next"]{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+input.incorrect, textarea.incorrect  {
+    background-color: lightcoral;
+}
+
+input.incorrect:after{
+    color: red;
+    content: "Ошибка!";
+}
+
+#buttons {
+    text-align: center;
+}
+
+#errorcontainer {
+    height: 25px;
+}
+
+#errormessage {
+    font-weight: bold;
+    text-align: center;
+    color: red;
+}
+
+#okmessage {
+    font-weight: bold;
+    text-align: center;
+    color: forestgreen;
+}
